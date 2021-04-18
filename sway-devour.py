@@ -65,13 +65,6 @@ class Devour:
         if self.spawned is None:
             self.spawned = event.container
 
-    async def get_focused_workspace(self):
-        workspaces = await self.sway.get_workspaces()
-        for workspace in workspaces:
-            if workspace.focused:
-                return workspace
-        return None
-
     async def handle_close_window(self, i3conn, event):
         print("handle close_window")
         if event.container.id == self.spawned.id:
