@@ -29,6 +29,11 @@ it is available at <https://github.com/salman-abedin/devour>.
 2. Install the requirements: `pip3 install click i3ipc` / `pip3 install -r requirements.txt`
 3. Devour programs like so `~./local/bin/sway-devour.py /path/to/your/program`; you may like to edit your .desktop files too. 
 
+##  Limitations and Assumptions
+- Firstly it is not a true devourer - it uses a workspace to "hide" the devoured window 
+- The sway ipc handler is launched, then the program is executed asynchronously. The first new window event registered is assumed 
+to be the launched window. It is probably possible to quickly start another window and for the script to get the wrong spawned window. 
+
 ## TODO 
 - Remove click usage in favour of stdlib (argparse), as it seems pointless to pull another dep in for a small project like this. 
 
