@@ -1,0 +1,4 @@
+click==7.1.2
+i3ipc==2.2.1
+python-xlib==0.29
+six==1.15.0

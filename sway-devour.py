@@ -20,12 +20,13 @@ from i3ipc.aio import Connection
 def main(executeable: str, workspace: str) -> None:
     """\b 
     sway-devour: a sway script to mimic the behavour of x11 window devourers  
-        (such as bspwm's functionality or devour.c (SalmanAbedin@disroot.org)), 
+        (such as bspwm's devour functionality or devour.c (SalmanAbedin@disroot.org)), 
         using a workspace instead of x11 (un)mapping to devour. 
     
     Version: 0.1
 
-    Arguments: 
+    Arguments:
+
         EXECUTEABLE    Some shell command to launch.  
     """
     d = Devour(executeable, workspace)
