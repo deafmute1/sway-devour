@@ -18,7 +18,7 @@ Options:
 ```
 
 Technically this also works for i3 (as it uses i3ipc-python). However, please do not use it there, 
-as Salman Abedin's devour.c does a much better job (it doesn't use a workspace as a hack to hide the window; 
+as Salman Abedin's devour.c does a much better job (it doesn't use a workspace as a hack to hide the window); 
 it is available at <https://github.com/salman-abedin/devour>. 
 
 
@@ -27,7 +27,7 @@ it is available at <https://github.com/salman-abedin/devour>.
 1. `wget -O ~/.local/bin https://github.com/deafmute1/sway-devour/blob/master/sway-devour.py`
 2. Make it executable (or simply call it with python in you config, whatever you prefer): `chmod +x ~/.local/bin/sway-devour.py`
 2. Install the requirements: `pip3 install click i3ipc` / `pip3 install -r requirements.txt`
-3. Add a line to your sway config: `bindsym <KEYBIND> ~/.local/bin/sway-devour.py`
+3. Devour programs like so `~./local/bin/sway-devour.py /path/to/your/program`; you may like to edit your .desktop files too. 
 
 ## TODO 
 - Remove click usage in favour of stdlib (argparse), as it seems pointless to pull another dep in for a small project like this. 
