@@ -41,11 +41,9 @@ class Devour:
 
     async def main(self):
         await self.connect()
-        print("watch_window")
         await asyncio.gather(self.sway.main(), self.execute())
 
     async def connect(self):
-        print("connect")
         self.sway = await Connection(auto_reconnect=True).connect()
 
         self.sway.on('window::new', self.handle_new_window)
@@ -57,16 +55,14 @@ class Devour:
             self.devoured.id, self.workspace))
 
     async def execute(self):
-        print("execute")
         os.system(self.executeable)
 
     async def handle_new_window(self, i3conn, event):
-        print("handle new window")
         if self.spawned is None:
             self.spawned = event.container
+            self.sway.off(self.handle_new_window)
 
     async def handle_close_window(self, i3conn, event):
-        print("handle close_window")
         if event.container.id == self.spawned.id:
             workspace = await self.get_focused_workspace()
             await self.sway.command("[con_id={}] move to workspace {}".format(
